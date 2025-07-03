@@ -4,7 +4,7 @@ Una aplicación web simple para **añadir**, **editar** y **eliminar** película
 
 
 ---
-![Vista previa del Gestor de Películas](./public/captura-gestor-peliculas.png)
+![Vista previa del Gestor de Películas](./public/captura.png)
 ---
 
 ##  Funcionalidades
