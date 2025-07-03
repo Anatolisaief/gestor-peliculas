@@ -42,6 +42,10 @@ Una aplicación web simple para **añadir**, **editar** y **eliminar** película
 
     node server.js
 
+    (O también se puede usar nodemon para reinicios automáticos durante el desarrollo:)
+
+    npx nodemon server.js
+
 **4.Abre la app en el navegador:**
 
     http://localhost:3000
