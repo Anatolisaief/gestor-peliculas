@@ -1,0 +1,366 @@
+/* Estilos generales */
+:root {
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #7c3aed;
+    --accent-hover: #6d28d9;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --danger: #ef447d;
+    --danger-hover: #c03563;
+    --success: #10a5b9;
+    --success-hover: #097c8b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--secondary);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #c93aed, #10a5b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Formulario */
+#form-pelicula {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: rgba(30, 41, 59, 0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+#form-pelicula input {
+    flex: 1 1 200px;
+    padding: 14px;
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+#form-pelicula input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+#form-pelicula input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+}
+
+#btnEnvio {
+    flex: 1 1 100%;
+    padding: 14px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#btnEnvio:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Lista de películas */
+#lista-peliculas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.pelicula {
+    background: linear-gradient(145deg, #1e293b, #1a2536);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.pelicula::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), transparent);
+    pointer-events: none;
+}
+
+.pelicula:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pelicula h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.pelicula p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+/* Botones */
+
+.pelicula .botones-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.pelicula button {
+    flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
+    min-width: 100px; /* Ancho mínimo para mantener proporción en móviles */
+    padding: 10px 5px; /* Padding ajustado */
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.pelicula button.btn-eliminar {
+    background-color: var(--danger);
+    color: white;
+}
+
+.pelicula button.btn-eliminar:hover {
+    background-color: var(--danger-hover);
+    transform: translateY(-2px);
+}
+
+.pelicula button.btn-editar {
+    background-color: var(--success);
+    color: white;
+}
+
+.pelicula button.btn-editar:hover {
+    background-color: var(--success-hover);
+    transform: translateY(-2px);
+}
+
+/* Diálogo de confirmación */
+dialog {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 12px;
+    padding: 40px;
+    background: linear-gradient(145deg, #1e293b, #1a2536);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    max-width: 450px;
+    text-align: center;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+dialog p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+dialog button {
+    width: 100px;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#confirm-yes {
+    background-color: var(--success);
+    color: white;
+}
+
+#confirm-yes:hover {
+    background-color: var(--success-hover);
+    transform: translateY(-2px);
+}
+
+#confirm-no {
+    background-color: var(--danger);
+    color: var(--text-primary);
+}
+
+#confirm-no:hover {
+    background-color: var(--danger-hover);
+    transform: translateY(-2px);
+}
+
+/* Efectos especiales */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#lista-peliculas {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  /* Formulario optimizado para móviles */
+  #form-pelicula {
+    flex-direction: column;
+    padding: 15px;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  #form-pelicula input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    flex: 1 1 auto; /* Reset para móviles */
+  }
+
+  #btnEnvio {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Lista de películas en móvil */
+  #lista-peliculas {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .pelicula {
+    padding: 18px;
+  }
+
+  .pelicula h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Diálogo en móviles */
+  dialog {
+    width: 90%;
+    max-width: none;
+    padding: 25px 15px;
+  }
+
+  dialog p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  dialog button {
+    width: 80px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    font-size: 0.9rem;
+  }
+
+  .pelicula .botones-container {
+        flex-direction: row; /* Mantenemos en fila incluso en móviles */
+        gap: 10px;
+    }
+    
+    .pelicula button {
+        min-width: 80px; /* Reducimos un poco en móviles */
+        padding: 8px 5px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  #form-pelicula input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .pelicula button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+  }
+
+  dialog button {
+    width: 70px;
+    padding: 8px 12px;
+  }
+}
