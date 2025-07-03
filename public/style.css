@@ -2,14 +2,14 @@
 :root {
     --primary: #0f172a;
     --secondary: #1e293b;
-    --accent: #7c3aed;
-    --accent-hover: #6d28d9;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --danger: #ef447d;
-    --danger-hover: #c03563;
-    --success: #10a5b9;
-    --success-hover: #097c8b;
+    --accent: #453875;
+    --accent-hover: #564388;
+    --text-primary: #ecf0f5;
+    --text-secondary: #b7bfca;
+    --danger: #a82d79;
+    --danger-hover: #7c225a;
+    --success: #0b8191;
+    --success-hover: #065964;
 }
 
 * {
@@ -43,7 +43,7 @@ h1 {
     color: var(--text-primary);
     font-weight: 600;
     letter-spacing: -0.5px;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     background: linear-gradient(90deg, #c93aed, #10a5b9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -112,7 +112,7 @@ h1 {
 }
 
 .pelicula {
-    background: linear-gradient(145deg, #1e293b, #1a2536);
+    background: linear-gradient(145deg, #34304d, #1a2536);
     border-radius: 12px;
     padding: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);

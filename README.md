@@ -2,6 +2,9 @@
 
 Una aplicación web simple para **añadir**, **editar** y **eliminar** películas usando HTML, CSS, JavaScript (Frontend) y Node.js con Express (Backend).
 
+
+---
+![Vista previa del Gestor de Películas](./public/captura-gestor-peliculas.png)
 ---
 
 ##  Funcionalidades
